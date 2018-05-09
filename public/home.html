@@ -14,6 +14,7 @@
 	</head>
 
 <body>	
+<header>
 	<nav>
     <div class="nav-wrapper">
 	<a href="#" data-target="slide-out" class="brand-logo"><img src="img/logo.jpg" style="height:64px;width:64px"/></a>      
@@ -27,27 +28,42 @@
       </ul>
     </div>	
   </nav>
-  
-<div class="row">
-<div class="col s2">
- <ul id="slide-out" class="side-nav fixed">
-    <li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('sarees')">Sarees</a></li>  
-	<li><div class="divider"></div></li>
-	<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('curtons')">curtons</a></li>
-	<li><div class="divider"></div></li>
-	<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('bedsheets')">Bed Sheets</a></li>
-</ul>
+  </header>
+ <div id="main">
+ 
+
+        
+ 
+	<div class="row">
+	<div class="col s2">	 
+	 <ul id="slide-out" class="side-nav fixed">
+		<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('sarees')">Sarees</a></li>  
+		<li><div class="divider"></div></li>
+		<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('curtons')">curtons</a></li>
+		<li><div class="divider"></div></li>
+		<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('bedsheets')">Bed Sheets</a></li>
+	</ul>         
+	</div>
+	<div class="col s8">
+	 <div class="carousel">
+		<a class="carousel-item" href="#one!">hari2</a>
+		<a class="carousel-item" href="#two!">hari1</a>
+		<a class="carousel-item" href="#three!">hari3</a>
+		<a class="carousel-item" href="#four!">hari4</a>
+	  </div>
+	</div>
+	<div class="col s2"></div>
+	</div>  
 </div>
-<div class="col s8">
- <div class="carousel">
-    <a class="carousel-item" href="#one!">hari2</a>
-    <a class="carousel-item" href="#two!">hari1</a>
-    <a class="carousel-item" href="#three!">hari3</a>
-    <a class="carousel-item" href="#four!">hari4</a>
-  </div>
-</div>
-<div class="col s2"></div>
-</div>  
+<footer class="page-footer footer-fixed">
+<div class="container">
+          <span>Copyright ©
+            <script type="text/javascript">
+              document.write(new Date().getFullYear());
+            </script><a class="grey-text text-lighten-2" href="http://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank"> Hari</a> All rights reserved.</span>
+          <span class="right hide-on-small-only"> Design and Developed by <a class="grey-text text-lighten-2" href="">Hari</a></span>
+        </div>
+</footer>
 <script>
  $(document).ready(function(){
 	$('.sidenav').sidenav();

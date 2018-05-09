@@ -1,3 +1,17 @@
+html {
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif !important;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.87);
+}
 nav{
 background-color:#111a46 !important;
+}
+.page-footer{
+	background-color:#111a46 !important;
+	}
+.page-footer.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
