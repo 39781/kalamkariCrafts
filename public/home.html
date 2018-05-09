@@ -4,51 +4,63 @@
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<meta charset="utf-8">
 		<title>Pure CSS3 Menu</title>
-		<link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-		<link href="iconic.css" media="screen" rel="stylesheet" type="text/css" />
-		<script src="prefix-free.js"></script>
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery.min.js"></script>
+		<!-- Compiled and minified JavaScript -->
+		<script src="js/materialize.min.js"></script>
+		
 	</head>
 
-<body>
-	<div class="wrap">
-	
+<body>	
 	<nav>
-		<ul class="menu">
-			<li><a href="#"><span class="iconic home"></span> Home</a></li>
-			<li><a href="#"><span class="iconic plus-alt"></span> About</a>
-				<ul>
-					<li><a href="#">Company History</a></li>
-					<li><a href="#">Meet the team</a></li>
-				</ul>
-			</li>
-			<li><a href="#"><span class="iconic magnifying-glass"></span> Services</a>
-				<ul>
-					<li><a href="#">Web Design</a></li>
-					<li><a href="#">App Development</a></li>
-					<li><a href="#">Email Campaigns</a></li>
-					<li><a href="#">Copyrighting</a></li>
-				</ul>
-			</li>
-			<li><a href="#"><span class="iconic map-pin"></span> Products</a>
-				<ul>
-					<li><a href="#">Widget One</a></li>
-					<li><a href="#">Widget Two</a></li>
-					<li><a href="#">Web App Three</a></li>
-					<li><a href="#">Web App Four</a></li>
-					<li><a href="#">Crazy Products</a></li>
-					<li><a href="#">iPhone Apps</a></li>
-				</ul>
-			</li>
-			<li><a href="#"><span class="iconic mail"></span> Contact</a>
-				<ul>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Directions</a></li>
-				</ul>
-			</li>
-		</ul>
-		<div class="clearfix"></div>
-	</nav>
-	</div>
+    <div class="nav-wrapper">
+	<a href="#" data-target="slide-out" class="brand-logo"><img src="img/logo.jpg" style="height:64px;width:64px"/></a>      
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sarees.html">Sarees</a></li>
+        <li><a href="curtons.html">Curtons</a></li>
+		<li><a href="bedsheets.html">Bed Sheets</a></li>
+		<li><a href="aboutus.html">About Us</a></li>
+		<li><a href="contactus.html">Contact Us</a></li>		
+      </ul>
+    </div>	
+  </nav>
+  
+<div class="row">
+<div class="col s2">
+ <ul id="slide-out" class="side-nav fixed">
+    <li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('sarees')">Sarees</a></li>  
+	<li><div class="divider"></div></li>
+	<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('curtons')">curtons</a></li>
+	<li><div class="divider"></div></li>
+	<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('bedsheets')">Bed Sheets</a></li>
+</ul>
+</div>
+<div class="col s8">
+ <div class="carousel">
+    <a class="carousel-item" href="#one!">hari2</a>
+    <a class="carousel-item" href="#two!">hari1</a>
+    <a class="carousel-item" href="#three!">hari3</a>
+    <a class="carousel-item" href="#four!">hari4</a>
+  </div>
+</div>
+<div class="col s2"></div>
+</div>  
+<script>
+ $(document).ready(function(){
+	$('.sidenav').sidenav();
+    $('.carousel').carousel();
+	loadCarousel('sarees');
+  });
+  function loadCarousel(dataType){
+	var carouselData = '<a class="carousel-item" href="#one!">hari2</a><a class="carousel-item" href="#two!">hari1</a>    <a class="carousel-item" href="#three!">hari3</a><a class="carousel-item" href="#four!">hari4</a>';
+	carouselData = carouselData.replace(/hari/ig,dataType);
+	$('.carousel').html(carouselData);
+	$('.carousel').carousel();
+  }
+</script>
 </body>
 
 </html>
