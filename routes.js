@@ -33,8 +33,8 @@ router.post('/getItemInfo',function(req, res){
 	fs.readdir('./public/images/'+item, function(err, filesList) {
 		var i=0;
 		filesList.forEach(function(file){
-			code = code+file.split('.')[0];
-			carouselData += '<a class="carousel-item" href="#'+code+'!" onClick="showMagnifier(\''+file+'\',\''+item+'\')"><img src="./images/'+req.body.item.toLowerCase()+'/'+file+'"/></a>';			
+			cd = code+file.split('.')[0];
+			carouselData += '<a class="carousel-item" href="#'+cd+'!" onClick="showMagnifier(\''+file+'\',\''+item+'\')"><img src="./images/'+req.body.item.toLowerCase()+'/'+file+'"/></a>';			
 		})		
 		res.json({responseData:carouselData}).end();
 	});		

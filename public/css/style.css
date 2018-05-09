@@ -4,6 +4,9 @@ html {
     font-weight: normal;
     color: rgba(0, 0, 0, 0.87);
 }
+.card-image img{
+	height:250px;
+}
 #maxiSize{
 	margin-top:65px;
 }
@@ -18,7 +21,7 @@ background-color:#111a46 !important;
 	background-color:#111a46 !important;
 	}
 .page-footer.footer-fixed {
-    position: fixed;
+   
     bottom: 0;
     width: 100%;
 }
