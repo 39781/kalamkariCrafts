@@ -44,7 +44,7 @@
 		<li style="text-align:center"><a href="#!" class="waves-effect" onClick="loadCarousel('bedsheets')">Bed Sheets</a></li>
 	</ul>         
 	</div>
-	<div class="col s8">
+	<div class="col s7">
 	 <div class="carousel">
 		<a class="carousel-item" href="#one!">hari2</a>
 		<a class="carousel-item" href="#two!">hari1</a>
@@ -52,7 +52,9 @@
 		<a class="carousel-item" href="#four!">hari4</a>
 	  </div>
 	</div>
-	<div class="col s2"></div>
+	<div class="col s3">
+		<div id="maxiSize">maximizer</div>
+	</div>
 	</div>  
 </div>
 <footer class="page-footer footer-fixed">
@@ -90,6 +92,10 @@
 		}
 	});	
 	
+  }
+  
+  function showMagnifier(file, item){
+	$('#maxiSize').html('<img class="maximizer" src=./images/'+item+'/'+file+' />');
   }
   
 </script>

@@ -4,6 +4,13 @@ html {
     font-weight: normal;
     color: rgba(0, 0, 0, 0.87);
 }
+#maxiSize{
+	margin-top:65px;
+}
+.maximizer{
+    max-width: 100%;
+    max-height: 100%;
+}
 nav{
 background-color:#111a46 !important;
 }
@@ -15,3 +22,4 @@ background-color:#111a46 !important;
     bottom: 0;
     width: 100%;
 }
+
