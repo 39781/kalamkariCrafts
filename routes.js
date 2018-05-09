@@ -20,96 +20,24 @@ router.get('/chat', function(req, res) {
   res.redirect('/chat.html');
 });
 
-router.post('/dialogflowAPI',function(req, res){
-	var options = { 
-		method: 'POST',
-		url: config.dialogflowAPI,
-		headers: {
-			"Authorization": "Bearer " + config.accessToken
-		},
-		body:req.body,			
-		json: true 
-	}; 			
-	request(options, function (error, response, body) {
-		if(error){
-			res.json({error:"error in chat server api call"}).end();
-		}else{			
-			if(body.result.metadata.intentName=='easyQuote'){
-				body.result.contexts.forEach(function(context){
-					if(context.name == 'easyquote-followup'){	
-						conf = JSON.parse(JSON.stringify(config));						
-						mail.sendMail(context.parameters.email, conf.mailContent, conf.mailAttachments);
-					}
-				});
-			}
-			res.json(body).end();
-		}		
-	});			
+router.post('/getItemInfo',function(req, res){
+	console.log(req.body);
+	var carouselData="",code='';;
+	var item = req.body.item.toLowerCase();
+	switch(item){
+		case 'sarees':code = 'S';break;
+		case 'curtons':code = 'C';break;
+		case 'bedsheets':code = 'B';break;
+	}
+	console.log('./public/images/'+item);
+	fs.readdir('./public/images/'+item, function(err, filesList) {
+		var i=0;
+		filesList.forEach(function(file){
+			carouselData += '<a class="carousel-item" href="#'+code+(i++)+'!"><img src="./images/'+req.body.item.toLowerCase()+'/'+file+'"/></a>';
+		})		
+		res.json({responseData:carouselData}).end();
+	});		
 })
-router.post('/botHandler',/*Authentication.SetRealm('botHandler'), Authentication.BasicAuthentication, */function(req, res){
-	//console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
-	console.log('Dialogflow Request body: ' + JSON.stringify(req.body));	
-		var intentName = req.body.result.metadata.intentName;
-		switch(intentName){
-			case 'easyQuote':func = easyQuote;break;
-			case 'feedBackOptionsIntent':func = feedBackOptionsIntent;break;
-			case 'feedBackNoIntent':func = feedBackNoIntent; break;
-		}
-		func(req.body)
-		.then((resp)=>{
-			console.log(resp);
-			res.json(resp).end();	
-		})
-		.catch((err)=>{
-			res.json(err).end();	
-		});
-});
-var feedBackNoIntent = function(reqBody){
-	return new Promise(function(resolve, reject){
-		resolve({		
-			"speech": "",
-			"displayText":"",
-			"followupEvent":{
-				"name":"finalIntent",
-				"data":{  
-					"finalMsg":"Okay, Thank you",					
-				}
-			}
-		});
-	});
-}
-var feedBackOptionsIntent = function(reqBody){
-	return new Promise(function(resolve, reject){
-		resolve({		
-			"speech": "",
-			"displayText":"",
-			"followupEvent":{
-				"name":"finalIntent",
-				"data":{  
-					"finalMsg":"We thank you for your valuable feedback",					
-				}
-			}
-		});
-	});
-}
-
-var easyQuote = function(reqBody){
-	return new Promise(function(resolve, reject){
-		resolve({		
-			"speech": "",
-			"displayText":"",
-			"followupEvent":{
-				"name":"feedBackIntent",
-				"data":{  
-					"confirmMsg":"Thank you for requesting a quote. We'll get back to you with the details you're looking for as soon as possible",					
-				}
-			}
-		});
-	});
-}
-
-
-
 module.exports = router;
 
 

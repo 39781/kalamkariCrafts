@@ -71,11 +71,27 @@
 	loadCarousel('sarees');
   });
   function loadCarousel(dataType){
-	var carouselData = '<a class="carousel-item" href="#one!">hari2</a><a class="carousel-item" href="#two!">hari1</a>    <a class="carousel-item" href="#three!">hari3</a><a class="carousel-item" href="#four!">hari4</a>';
-	carouselData = carouselData.replace(/hari/ig,dataType);
-	$('.carousel').html(carouselData);
-	$('.carousel').carousel();
+	$.ajax({
+		type: "POST",
+		url: './getItemInfo',
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		/*headers: {
+			"Authorization": "Bearer " + config.accessToken
+		},*/
+		data: JSON.stringify({"item":dataType}),
+		success: function(response) {
+				console.log(response);
+			$('.carousel').html(response.responseData);	
+			$('.carousel').carousel();				
+		},				
+		error: function() {
+			$('.carousel').html('Internal server error/no Data found');
+		}
+	});	
+	
   }
+  
 </script>
 </body>
 
