@@ -58,7 +58,8 @@
 	  </div>
 	</div>
 	<div class="col m3 s12">
-		<div id="maxiSize">maximizer</div>
+		<div class="row" id="maxiSize">maximizer</div>
+		<div class="row" style='text-align:center' id="itemCode">Item code : xxx</div>
 	</div>
 	</div>  
 </div>
@@ -164,8 +165,9 @@
 	
   }
   
-  function showMagnifier(file, item){
+  function showMagnifier(file, item, code){
 	$('#maxiSize').html('<img class="maximizer" src=./images/'+item+'/'+file+' />');
+	$('#itemCode').html('Item Code :'+code)
   }
   
 </script>

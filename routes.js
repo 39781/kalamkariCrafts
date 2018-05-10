@@ -34,7 +34,7 @@ router.post('/getItemInfo',function(req, res){
 		var i=0;
 		filesList.forEach(function(file){
 			cd = code+file.split('.')[0];
-			carouselData += '<a class="carousel-item" href="#'+cd+'!" onClick="showMagnifier(\''+file+'\',\''+item+'\')"><img src="./images/'+req.body.item.toLowerCase()+'/'+file+'" /></a>';			
+			carouselData += '<a class="carousel-item" href="#'+cd+'!" onClick="showMagnifier(\''+file+'\',\''+item+'\',\''+cd+'\')"><img src="./images/'+req.body.item.toLowerCase()+'/'+file+'" /></a>';			
 		})		
 		res.json({responseData:carouselData}).end();
 	});		
